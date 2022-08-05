@@ -6,6 +6,7 @@
 
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import '/src/styles.css';
 
 /**
  * An example element.
@@ -36,6 +37,10 @@ export class MyElement extends LitElement {
    */
   @property({type: Number})
   count = 0;
+
+  override createRenderRoot() {
+    return this; // turn off shadow dom to access external styles
+  }
 
   override render() {
     return html`
